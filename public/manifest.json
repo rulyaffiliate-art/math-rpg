@@ -1,0 +1,10 @@
+{
+  "name": "Math RPG - Petualangan Matematika",
+  "short_name": "MathRPG",
+  "description": "Game Math RPG Offline - Turn Based 10 Detik",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#4a3fdb",
+  "icons": []
+}

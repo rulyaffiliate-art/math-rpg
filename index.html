@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Math RPG - Petualangan Matematika</title>
+  <meta name="description" content="Game Math RPG Offline - Turn Based 10 Detik">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#4a3fdb">
+</head>
+<body>
+  <div id="app">
+    <!-- HEADER HUD -->
+    <header id="hud">
+      <div class="hud-left">
+        <span id="hud-level">Lv.1</span>
+        <div class="exp-bar"><div id="exp-fill"></div></div>
+        <span id="hud-exp">0/100 EXP</span>
+      </div>
+      <div class="hud-center">
+        <span id="hud-stage">Stage 1-1</span>
+        <span id="hud-gold">💰 100 Gold</span>
+      </div>
+      <div class="hud-right">
+        <button id="btn-shop">🛒 Toko</button>
+        <button id="btn-save">💾 Simpan</button>
+      </div>
+    </header>
+
+    <!-- BATTLE ARENA WIREFRAME -->
+    <main id="arena">
+      <!-- Status Bars -->
+      <div id="battle-status">
+        <div class="combatant player-side">
+          <div class="sprite" id="player-sprite">🧙‍♂️</div>
+          <div class="info">
+            <div class="name" id="player-name">Pahlawan Lv.1</div>
+            <div class="hp-bar"><div id="player-hp-fill" class="hp-fill"></div><span id="player-hp-text">100/100</span></div>
+            <div class="atk-text" id="player-atk">ATK 15</div>
+          </div>
+        </div>
+        <div id="vs">VS</div>
+        <div class="combatant enemy-side">
+          <div class="info">
+            <div class="name" id="enemy-name">Slime Lv.1</div>
+            <div class="hp-bar"><div id="enemy-hp-fill" class="hp-fill enemy"></div><span id="enemy-hp-text">50/50</span></div>
+            <div class="atk-text" id="enemy-atk">ATK 8</div>
+          </div>
+          <div class="sprite" id="enemy-sprite">👾</div>
+        </div>
+      </div>
+
+      <!-- Timer Bar 10 Detik -->
+      <div id="timer-container">
+        <div id="timer-bar"><div id="timer-fill"></div></div>
+        <span id="timer-text">10.0s</span>
+      </div>
+
+      <!-- Soal Matematika -->
+      <div id="question-box">
+        <div id="question-text">5 + 3 = ?</div>
+        <div id="question-level">Level 1 • Penjumlahan</div>
+      </div>
+
+      <!-- 3 Tombol Pilihan Jawaban -->
+      <div id="answer-grid">
+        <button class="answer-btn" data-index="0" id="ans0">8</button>
+        <button class="answer-btn" data-index="1" id="ans1">7</button>
+        <button class="answer-btn" data-index="2" id="ans2">9</button>
+      </div>
+
+      <!-- Tools -->
+      <div id="tools">
+        <button class="tool-btn" id="tool-potion" title="Health Potion (Heal 50)">🧪 Potion x<span id="count-potion">2</span></button>
+        <button class="tool-btn" id="tool-time" title="Time Booster +5 detik">⏱️ +5s x<span id="count-time">2</span></button>
+        <button class="tool-btn" id="tool-5050" title="50:50 hapus 1 jawaban salah">🔮 50:50 x<span id="count-5050">2</span></button>
+      </div>
+
+      <div id="battle-log">⚔️ Pertarungan dimulai! Jawab soal untuk menyerang!</div>
+    </main>
+
+    <!-- SHOP MODAL -->
+    <div id="shop-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>🛒 Toko Item</h2>
+        <div id="shop-items"></div>
+        <button id="shop-close" class="close-btn">Tutup</button>
+      </div>
+    </div>
+
+    <!-- KALAH MODAL -->
+    <div id="lose-modal" class="modal hidden">
+      <div class="modal-content" style="text-align:center; border-color:#e74c3c">
+        <h2 style="color:#e74c3c; font-size:32px; letter-spacing:3px">💀 KALAH</h2>
+        <p id="lose-reason" style="color:#a0a0b8; margin:8px 0">Darah Habis!</p>
+        <p style="font-size:12px; color:#666">Stage <span id="lose-stage">1</span> • <span id="lose-answer"></span></p>
+        <button id="btn-restart" style="width:100%; margin-top:14px; padding:14px; background:linear-gradient(90deg,#e74c3c,#c0392b); color:#fff; border:none; border-radius:10px; font-weight:900; font-size:16px; cursor:pointer">🔄 RESTART</button>
+      </div>
+    </div>
+
+    <!-- INVENTORY & STATS -->
+    <footer id="inventory-bar">
+      <div id="equipment">
+        <span>⚔️ Senjata: <b id="eq-weapon">Kayu (+0)</b></span>
+        <span>🛡️ Armor: <b id="eq-armor">Kain (+0)</b></span>
+      </div>
+      <div id="controls-hint">Jawab benar = Serang | Salah/Waktu habis = Musuh menyerang</div>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
